@@ -1,29 +1,70 @@
 <script lang="ts">
+	import {
+		NumberInput,
+		RadioButtonGroup,
+		RadioButton,
+		Slider,
+	} from 'carbon-components-svelte';
 	import { hotkey } from 'svelte-gh-hotkey';
+	import {
+		animations,
+		duration,
+		selectedFrameCount,
+		currentAnimationName,
+	} from '@stores/animations';
 
 	export let play: () => void;
 	export let reset: () => void;
 </script>
 
-<button
-	type="button"
-	data-action="play"
-	on:click={() => {
-		play();
-	}}
-	use:hotkey={'e'}>Play <span class="font-mono text-[0.85em]">[e]</span></button
->
-<button
-	type="button"
-	data-action="reset"
-	on:click={() => {
-		reset();
-	}}
-	use:hotkey={'r'}
-	>Reset <span class="font-mono text-[0.85em]">[r]</span></button
->
+<div>
+	<button
+		type="button"
+		data-action="play"
+		on:click={() => {
+			play();
+		}}
+		use:hotkey={'e'}
+		>Play <span class="font-mono text-[0.85em]">[e]</span></button
+	>
+	<button
+		type="button"
+		data-action="reset"
+		on:click={() => {
+			reset();
+		}}
+		use:hotkey={'r'}
+		>Reset <span class="font-mono text-[0.85em]">[r]</span></button
+	>
+</div>
+<div class="inputs-wrapper">
+	<RadioButtonGroup
+		bind:selected={$selectedFrameCount}
+		legendText="Frame Count"
+	>
+		<RadioButton on:change={() => reset()} labelText="12" value="12" />
+		<RadioButton on:change={() => reset()} labelText="24" value="24" />
+	</RadioButtonGroup>
+
+	<Slider
+		bind:value={$duration}
+		on:change={() => reset()}
+		labelText="Duration (seconds)"
+		min={1}
+		max={10}
+		step={1}
+		style="flex: 0;"
+	/>
+</div>
 
 <style lang="postcss">
+	.inputs-wrapper {
+		width: 100%;
+		margin-block: 2rem;
+		display: inline-flex;
+		justify-content: space-between;
+	}
+
 	button {
 		--default-border-color: #8d8a86;
 		--default-background-color: #c3c2c0;

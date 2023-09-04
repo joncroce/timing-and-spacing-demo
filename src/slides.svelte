@@ -7,29 +7,27 @@
 		AnimationControls,
 	} from '@components';
 	import {
-		createAnimations,
+		animations,
+		currentAnimationName,
 		labelByAnimationName,
-		type AnimationName,
-	} from '@lib/animations';
-	import { animations } from '@stores/animations';
+		ready,
+	} from '@stores/animations';
 
 	onMount(() => {
-		$animations = createAnimations();
+		$ready = true;
 	});
 
-	let currentAnimationName: AnimationName | null = null;
-
 	function playAnimation() {
-		if (currentAnimationName !== null) {
-			console.log(`Playing ${currentAnimationName}`);
-			$animations[currentAnimationName].play(0);
+		if ($currentAnimationName !== null) {
+			console.log(`Playing ${$currentAnimationName}`);
+			$animations[$currentAnimationName].play(0);
 		}
 	}
 
 	function resetAnimation() {
-		if (currentAnimationName !== null) {
-			console.log(`Resetting ${currentAnimationName}`);
-			$animations[currentAnimationName].pause(0);
+		if ($currentAnimationName !== null) {
+			console.log(`Resetting ${$currentAnimationName}`);
+			$animations[$currentAnimationName].pause(0);
 		}
 	}
 </script>
@@ -38,7 +36,7 @@
 	<Slide
 		animate
 		on:in={() => {
-			currentAnimationName = null;
+			$currentAnimationName = null;
 		}}
 	>
 		<p class="font-bold">⏳ Timing and Spacing Demo ⌛</p>
@@ -47,7 +45,9 @@
 		<Slide
 			animate
 			on:in={() => {
-				currentAnimationName = animationName;
+				$currentAnimationName = animationName;
+			}}
+			on:out={() => {
 				resetAnimation();
 			}}
 		>

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import config from '@config';
-	import { frames, elementWidth, type AnimationName } from '@lib/animations';
+	import {
+		MAX_FRAMES,
+		elementWidth,
+		type AnimationName,
+	} from '@stores/animations';
 
 	export let animationName: AnimationName;
 
@@ -8,7 +12,7 @@
 </script>
 
 <svg {width} height="84" viewBox="0 0 {width} 84">
-	{#each Array(frames + 1) as _, i}
+	{#each Array(MAX_FRAMES + 1) as _, i}
 		<g
 			id="{animationName}-{i}"
 			x={elementWidth / 2}
