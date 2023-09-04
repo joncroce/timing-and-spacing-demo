@@ -34,10 +34,16 @@ export const animations = derived([frames, duration, ready], ([$frames, $duratio
 		});
 });
 
+/**
+ * Animators and developers use conflicting definitions of Easing In/Out.
+ * This demo uses the animators' definition, thus the seemingly inverted
+ * easing functions for easeIn and easeOut.
+ * See https://medium.com/@gordonnl/ease-in-or-ease-out-ed9a0969042e
+ */
 const easeFnByAnimationName: Record<AnimationName, gsap.EaseFunction> = {
 	noEase: gsap.parseEase('none'),
-	easeIn: gsap.parseEase('power1.in'),
-	easeOut: gsap.parseEase('power1.out'),
+	easeIn: gsap.parseEase('power1.out'),
+	easeOut: gsap.parseEase('power1.in'),
 	easeInOut: gsap.parseEase('power1.inOut'),
 };
 
