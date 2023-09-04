@@ -36,6 +36,7 @@
 
 <Presentation>
 	<Slide
+		animate
 		on:in={() => {
 			currentAnimationName = null;
 		}}
