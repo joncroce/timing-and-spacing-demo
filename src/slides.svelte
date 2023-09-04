@@ -39,7 +39,7 @@
 			$currentAnimationName = null;
 		}}
 	>
-		<p class="font-bold">⏳ Timing and Spacing Demo ⌛</p>
+		<h2 class="text-4xl font-bold">⏳ Timing and Spacing Demo ⌛</h2>
 	</Slide>
 	{#each labelByAnimationName.entries() as [animationName, label]}
 		<Slide
