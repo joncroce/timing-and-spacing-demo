@@ -17,6 +17,9 @@ dependencies:
   reveal.js:
     specifier: ^4.5.0
     version: 4.5.0
+  svelte-gh-hotkey:
+    specifier: ^0.2.1
+    version: 0.2.1
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte':
@@ -287,6 +290,10 @@ packages:
 
   /@fontsource-variable/manrope@5.0.5:
     resolution: {integrity: sha512-yT4+athYl7/d2IIH6pCByyBFj/Zhd3Q+P2EcGorXuScG/Pjd0CYTqk4KPkdiZB01ns0DNZIVquDr9D+Pb5wwUA==}
+    dev: false
+
+  /@github/hotkey@1.6.1:
+    resolution: {integrity: sha512-vwxqOREwldnk5wD460LPB5wUVpiVECPupi+9fKx5TFXUiRLLz4sw8QbF1FqQsV+puwsjUBhzXPa4Crj/7MGPhw==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
@@ -1243,6 +1250,12 @@ packages:
       - stylus
       - sugarss
     dev: true
+
+  /svelte-gh-hotkey@0.2.1:
+    resolution: {integrity: sha512-pSjpD0KeSW98bQJZaCVzC03gY6127K2+xJx/wixz7EwNGxiGk2t5fHFx8oGvWOmn5Q6CYo3WTb1A8LYrrQBsAA==}
+    dependencies:
+      '@github/hotkey': 1.6.1
+    dev: false
 
   /svelte-hmr@0.15.2(svelte@4.1.1):
     resolution: {integrity: sha512-q/bAruCvFLwvNbeE1x3n37TYFb3mTBJ6TrCq6p2CoFbSTNhDE9oAtEfpy+wmc9So8AG0Tja+X0/mJzX9tSfvIg==}

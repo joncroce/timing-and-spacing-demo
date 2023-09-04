@@ -32,7 +32,8 @@
 		"@fontsource-variable/jetbrains-mono": "^5.0.6",
 		"@fontsource-variable/manrope": "^5.0.5",
 		"gsap": "^3.12.2",
-		"reveal.js": "^4.5.0"
+		"reveal.js": "^4.5.0",
+		"svelte-gh-hotkey": "^0.2.1"
 	},
 	"lint-staged": {
 		"*.{js,ts,css,svelte,md}": "prettier --write"
